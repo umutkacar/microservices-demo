@@ -28,12 +28,14 @@ jobs:
 
     - name: Checkout Repository
       uses: actions/checkout@v2
+      with:
+        repository: microservices-demo/front-end
 
-    - name: Build, tag, and push image to Amazon ECR
+    - name: Build, tag, and push front-end image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: private-example
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: front-end-${{ github.sha }}
       run: |
 
         cd deploy/kubernetes
