@@ -6,7 +6,7 @@ env:
   AWS_REGION: eu-west-1
   ECR_REPO: private-example
   IMAGE_TAG: ${{ github.sha }}
-  AWS_ACCOUNT_ID: 730335574072
+  AWS_ACCOUNT_ID: "730335574072"
 
 jobs:
   build-and-push:
