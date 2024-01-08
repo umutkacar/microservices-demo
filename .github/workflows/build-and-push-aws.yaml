@@ -10,6 +10,8 @@ env:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+    
     steps:
     # see: https://github.com/aws-actions/configure-aws-credentials
     - name: Configure AWS Credentials
