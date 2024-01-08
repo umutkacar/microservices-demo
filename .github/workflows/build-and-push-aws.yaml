@@ -52,7 +52,7 @@ jobs:
         ECR_REPOSITORY: private-example
         IMAGE_TAG: catalogue-${{ github.sha }}
       run: |
-        cd catalogue/docker/catalogue
+        cd docker/catalogue
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     
@@ -62,7 +62,7 @@ jobs:
         ECR_REPOSITORY: private-example
         IMAGE_TAG: catalogue-db-${{ github.sha }}
       run: |
-        cd catalogue/docker/catalogue-db
+        cd docker/catalogue-db
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
