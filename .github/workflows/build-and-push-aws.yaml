@@ -52,7 +52,7 @@ jobs:
         ECR_REPOSITORY: private-example
         IMAGE_TAG: catalogue-${{ github.sha }}
       run: |
-        docker build -f docker/catalogue -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -f docker/catalogue/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     
     - name: Build, tag, and push catalogue-db image to Amazon ECR
@@ -62,7 +62,7 @@ jobs:
         IMAGE_TAG: catalogue-db-${{ github.sha }}
       run: |
     
-        docker build -f docker/catalogue-db -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -f docker/catalogue-db/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
     - name: Log out of Amazon ECR
