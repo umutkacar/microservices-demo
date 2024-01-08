@@ -11,7 +11,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
     # see: https://github.com/aws-actions/configure-aws-credentials
     - name: Configure AWS Credentials
@@ -32,6 +32,8 @@ jobs:
         ECR_REPOSITORY: private-example
         IMAGE_TAG: ${{ github.sha }}
       run: |
+
+        cd deploy/kubernetes
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
